@@ -1,0 +1,5 @@
+{
+  "_comment": "Contains information about the project, such as its name, version, description, author, license, and repository links.",
+  "name": "battleship-game",
+  "version": "1.0.0"
+}

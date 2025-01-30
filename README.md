@@ -74,4 +74,3 @@ extend: {
 ---
 
 💡 **Upload your AI bots and let them battle it out!** ⚔️🤖🚢
-```

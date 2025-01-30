@@ -1,4 +1,4 @@
-```md
+
 # 🤖 Battleship AI Arena
 
 **Battleship AI Arena** is a web-based platform where users can test their AI-powered Battleship bots against each other in a competitive environment. The frontend provides an interactive interface for uploading AI bots and visualizing their battle progress.

@@ -1,21 +1,14 @@
----
-layout: default
 title: Online Game Tournaments Website
----
-<!--You are expected to keep the website updated with all deliverables, presentations, video, and source code. -->
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Online Game Tournaments Website</title>
-    </head>
-    <body>
-        <h1>Project Goals</h1>
-        <p>The goal of this project is to create a platform for people to upload AIs for the game Battleship and have them compete against each other in tournaments.</p>
-        <h1>Links to subpages</h1>
-        <a href="https://vclavijo03.github.io/vclavijo03.github.io/website/Deliverables.html">Deliverables</a>
-        <br>
-        <a href="https://vclavijo03.github.io/vclavijo03.github.io/website/TeamBio.html">Team Member Bios</a>
-    </body>
-</html>
+description: 
+theme: jekyll-theme-cayman
+url: https://vclavijo03.github.io
+# Optional settings
+author:
+  name: Victoria Clavijo
+  email: fclavijo@crimson.ua.edu
+# Optional: Set the base URL if your site is not at the root of the domain
+# baseurl: "" # Uncomment and set if needed
+# Optional: Set the permalink style
+permalink: pretty
+# Optional: Set the markdown processor
+markdown: kramdown

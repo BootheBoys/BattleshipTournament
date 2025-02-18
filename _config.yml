@@ -1,6 +1,7 @@
 title: Online Game Tournaments Website
 description: 
 theme: jekyll-theme-cayman
+url: https://bootheboys.github.io/BattleshipTournament
 baseurl: "/BattleshipTournament"
 # Optional settings
 # Optional: Set the permalink style

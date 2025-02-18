@@ -30,6 +30,7 @@ export default function BattleshipModelUpload() {
     uploadStatus: "idle",
     hitCells: [],
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const fileInputRef1 = useRef<HTMLInputElement>(null)
   const fileInputRef2 = useRef<HTMLInputElement>(null)
@@ -102,6 +103,49 @@ export default function BattleshipModelUpload() {
       simulateUpload(player)
     }
   }
+
+
+
+  const submitToBackend = async () => {
+    if (!player1.file || !player2.file) {
+      return
+    }
+
+    setIsSubmitting(true)
+    const formData = new FormData()
+    formData.append('file1', player1.file)
+    formData.append('file2', player2.file)
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/play/', {
+        method: 'POST',
+        body: formData,
+      })
+
+      // If the response is not JSON, handle it appropriately
+      const contentType = response.headers.get("content-type")
+      if (contentType && contentType.includes("application/json")) {
+        const data = await response.json()
+        console.log('Files uploaded successfully:', data)
+      } else {
+        // Handle non-JSON response
+        const text = await response.text()
+        console.log('Files uploaded successfully:', text)
+      }
+
+      // If we got here, the upload was successful regardless of response type
+      setPlayer1(prev => ({ ...prev, uploadStatus: 'success' }))
+      setPlayer2(prev => ({ ...prev, uploadStatus: 'success' }))
+
+    } catch (error) {
+      console.error('Error uploading files:', error)
+      setPlayer1(prev => ({ ...prev, uploadStatus: 'error' }))
+      setPlayer2(prev => ({ ...prev, uploadStatus: 'error' }))
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
 
   const renderPlayerGrid = (player: PlayerState) => (
     <div className="grid grid-cols-7 gap-2 mb-6">
@@ -187,8 +231,16 @@ export default function BattleshipModelUpload() {
           {renderPlayerUpload("player1")}
           {renderPlayerUpload("player2")}
         </div>
+        {player1.uploadStatus === "success" && player2.uploadStatus === "success" && (
+          <button
+            onClick={submitToBackend}
+            disabled={isSubmitting}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 mt-8 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 disabled:bg-gray-500 disabled:cursor-not-allowed"
+          >
+            {isSubmitting ? "Submitting..." : "Start Battle"}
+          </button>
+        )}
       </div>
     </div>
   )
 }
-

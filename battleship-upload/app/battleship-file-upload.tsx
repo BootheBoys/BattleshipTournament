@@ -104,8 +104,6 @@ export default function BattleshipModelUpload() {
     }
   }
 
-
-
   const submitToBackend = async () => {
     if (!player1.file || !player2.file) {
       return
@@ -117,23 +115,22 @@ export default function BattleshipModelUpload() {
     formData.append('file2', player2.file)
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/play/', {
+      const response = await fetch('http://localhost:8000/play/', {
         method: 'POST',
         body: formData,
+        headers: {
+          'Accept': 'application/json',
+        },
+        credentials: 'include',
+        mode: 'cors',
       })
 
-      // If the response is not JSON, handle it appropriately
-      const contentType = response.headers.get("content-type")
-      if (contentType && contentType.includes("application/json")) {
-        const data = await response.json()
-        console.log('Files uploaded successfully:', data)
-      } else {
-        // Handle non-JSON response
-        const text = await response.text()
-        console.log('Files uploaded successfully:', text)
-      }
-
-      // If we got here, the upload was successful regardless of response type
+      const data = await response.json()
+      // Display the winner (first player in rankings)
+      const winner = data.rankings[0][1]
+      alert(`Winner: ${winner}`)
+      
+      console.log('Files uploaded successfully:', data)
       setPlayer1(prev => ({ ...prev, uploadStatus: 'success' }))
       setPlayer2(prev => ({ ...prev, uploadStatus: 'success' }))
 
@@ -145,7 +142,6 @@ export default function BattleshipModelUpload() {
       setIsSubmitting(false)
     }
   }
-
 
   const renderPlayerGrid = (player: PlayerState) => (
     <div className="grid grid-cols-7 gap-2 mb-6">

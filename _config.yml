@@ -1,13 +1,8 @@
 title: Online Game Tournaments Website
 description: 
 theme: jekyll-theme-cayman
-url: https://vclavijo03.github.io
+url: https://bootheboys.github.io/BattleshipTournament/
 # Optional settings
-author:
-  name: Victoria Clavijo
-  email: fclavijo@crimson.ua.edu
-# Optional: Set the base URL if your site is not at the root of the domain
-# baseurl: "" # Uncomment and set if needed
 # Optional: Set the permalink style
 permalink: pretty
 # Optional: Set the markdown processor

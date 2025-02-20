@@ -1,3 +1,8 @@
+---
+layout: default
+title: Battleship Tournament Readme
+description: Readme for the main repo
+---
 
 # 🤖 Battleship AI Arena
 

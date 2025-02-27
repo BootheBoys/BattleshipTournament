@@ -1,0 +1,22 @@
+v1.0 of Proposed File Structure for organization purposes. Please comment on any ammendments / adjustments needed here and we will adjust as needed. 
+
+battleship-game/
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.js
+│   │   ├── index.js
+│   ├── package.json
+│   └── vite.config.js (or webpack.config.js, etc)
+├── backend/
+│   ├── routes/
+│   ├── models/
+│   ├── server.js
+│   ├── package.json
+│   └── Dockerfile (if we end up using docker)
+├── .gitignore
+├── README.md
+├── LICENSE
+└── docs/

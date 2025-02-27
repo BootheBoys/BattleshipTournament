@@ -1,0 +1,8 @@
+title: Online Game Tournaments Website
+description: Website for the Online Game Tournaments group for Spring 2025 CS 495
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme
+url: https://bootheboys.github.io/BattleshipTournament
+permalink: pretty
+markdown: kramdown

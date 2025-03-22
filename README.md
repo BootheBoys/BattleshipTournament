@@ -37,7 +37,7 @@ description: Readme for the main repo
 1. **Clone the repository**  
    ```sh
    git clone https://github.com/your-repo/battleship-ai-arena.git
-   cd battleship-ai-arena
+   cd frontend
    ```
 
 2. **Install dependencies**  
